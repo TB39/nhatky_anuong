@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="vi">
+<!-- 
+  GITHUB ACTIONS CONFIGURATION AUTO-TRIGGER
+  Mã kích hoạt hệ thống chạy lại lượt deploy mới tinh
+  ID chạy mới: deploy_refresh_2026_v2
+-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +57,7 @@
         }
 
         @keyframes floatPetals {
-            0% { transform: translateY(-100px) rotate(0deg); }
+            0 { transform: translateY(-100px) rotate(0deg); }
             100% { transform: translateY(110vh) rotate(720deg); }
         }
 
@@ -499,14 +504,13 @@
             isSpinning = true;
             resultDisplay.innerHTML = `<span style="font-size:1.1rem">Đang xoay... hai đứa cùng chờ nè 💕</span>`;
             
-            // THUẬT TOÁN ĐÃ ĐƯỢC THAY ĐỔI: Chọn một index ngẫu nhiên từ 0 đến 9 hoàn toàn tự nhiên
+            // CHỌN NGẪU NHIÊN 100% TẤT CẢ CÁC MÓN
             const targetIndex = Math.floor(Math.random() * totalSegments); 
             
             const baseSpins = 6 * 360; 
             const currentRotationDegrees = currentRotation % 360;
             const degreesPerSegment = 360 / totalSegments;
             
-            // Tính toán góc dừng để mũi tên (đỉnh trên cùng 270 độ) chỉ đúng món được chọn ngẫu nhiên
             const targetAngle = 270 - (targetIndex * degreesPerSegment) - (degreesPerSegment / 2);
             let finalDegrees = baseSpins + targetAngle - currentRotationDegrees;
             
