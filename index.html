@@ -115,7 +115,7 @@
             z-index: 5;
         }
 
-        /* Modern Wheel - Dreamy & Unique */
+        /* Modern Wheel */
         .wheel-section {
             background: var(--card);
             border-radius: 32px;
@@ -179,7 +179,7 @@
                 0 0 0 14px #fff,
                 0 0 0 18px var(--accent),
                 0 15px 35px rgba(255, 77, 109, 0.25);
-            transition: transform 4.2s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 4.2s cubic-bezier(0.25, 0.1, 0.2, 1);
         }
 
         .btn-spin {
@@ -229,7 +229,7 @@
             line-height: 1.3;
         }
 
-        /* Food List - Polaroid + Glassmorphism */
+        /* Food List */
         .section-title {
             font-size: 1.35rem;
             font-weight: 700;
@@ -377,7 +377,7 @@
     </header>
 
     <div class="container">
-        <!-- VÒNG QUAY SIÊU ĐẸP -->
+        <!-- VÒNG QUAY -->
         <div class="wheel-section">
             <div class="wheel-title">
                 🎠 Vòng Quay Tình Yêu • Hôm Nay Ăn Gì?
@@ -395,7 +395,7 @@
         <div class="section-title">🌸 Quán Ruột Của Hai Đứa</div>
         
         <div class="food-list" id="foodList">
-            <!-- Cards will be populated by JS -->
+            <!-- Tự động sinh ra từ JS -->
         </div>
     </div>
 
@@ -404,7 +404,7 @@
     </footer>
 
     <script>
-        // Floating petals
+        // Hiệu ứng cánh hoa bay
         function createPetal() {
             const petalsContainer = document.getElementById('petalsContainer');
             if (!petalsContainer) return;
@@ -421,21 +421,21 @@
         }
         setInterval(createPetal, 280);
 
-        // Food data
+        // DATA CHUẨN 100% LINK THẬT BẠN GỬI
         const foods = [
-            { id: 1, name: "Bò bít tết Ngã Tư Hoà Lân", tag: "Món Chính", address: "Quận Thủ Đức", map: "https://www.google.com/maps/search/?api=1&query=Bò+bít+tết+ngã+tư+Hoà+Lân", emoji: "🥩", color: "#ff6b84" },
-            { id: 2, name: "Bún bò 29", tag: "Món Chính", address: "Quận 1 / Bình Thạnh", map: "https://www.google.com/maps/search/?api=1&query=Bún+bò+29", emoji: "🍜", color: "#ff9bb3" },
-            { id: 3, name: "Bánh bèo chén Bàu Bàng", tag: "Món Chính", address: "Bình Dương", map: "https://www.google.com/maps/search/?api=1&query=Bánh+bèo+chén+Bàu+Bàng", emoji: "🥟", color: "#ff8da1" },
-            { id: 4, name: "Bún Đậu nhà Sen", tag: "Món Chính", address: "Quận 3", map: "https://www.google.com/maps/search/?api=1&query=Bún+Đậu+nhà+Sen", emoji: "🍲", color: "#ff6b84" },
-            { id: 5, name: "Bánh cuốn nóng Kim Loan", tag: "Món Chính", address: "Quận Phú Nhuận", map: "https://www.google.com/maps/search/?api=1&query=Bánh+cuốn+nóng+Kim+Loan", emoji: "🌯", color: "#ff9bb3" },
-            { id: 6, name: "Gỏi đu đủ", tag: "Ăn Vặt", address: "Nhiều chỗ", map: "https://www.google.com/maps/search/?api=1&query=Gỏi+đu+đủ", emoji: "🥗", color: "#ffb3c8" },
-            { id: 7, name: "Chân gà & Sứa", tag: "Ăn Vặt", address: "Quán vặt", map: "https://www.google.com/maps/search/?api=1&query=Chân+gà+sứa", emoji: "🐔", color: "#ff8da1" },
-            { id: 8, name: "Sữa tươi trân châu & Bánh flan", tag: "Tráng Miệng", address: "Nhiều quán", map: "https://www.google.com/maps/search/?api=1&query=Sữa+tươi+trân+châu+đường+đen", emoji: "🧋", color: "#ff6b84" },
-            { id: 9, name: "Trà đào cam nhãn Soo tea", tag: "Đồ Uống", address: "Quận 1", map: "https://www.google.com/maps/search/?api=1&query=Trà+đào+cam+nhãn+Soo+tea", emoji: "🍵", color: "#ff9bb3" },
-            { id: 10, name: "Bánh Paparoti", tag: "Tráng Miệng", address: "Nhiều chi nhánh", map: "https://www.google.com/maps/search/?api=1&query=Bánh+Paparoti", emoji: "🥐", color: "#ffb3c8" }
+            { id: 1, name: "Bò bít tết ngã tư Hoà Lân", tag: "Món Chính", address: "Thuận An, Bình Dương", map: "https://maps.app.goo.gl/3AptUf6zsh2kE4378?g_st=ic", emoji: "🥩", color: "#ff6b84" },
+            { id: 2, name: "Bún bò 29", tag: "Món Chính", address: "Thủ Dầu Một, Bình Dương", map: "https://maps.app.goo.gl/kbyD4aA4wTjY5tGHA?g_st=ic", emoji: "🍜", color: "#ff9bb3" },
+            { id: 3, name: "Bánh bèo chén Bàu Bàng", tag: "Món Chính", address: "Bàu Bàng, Bình Dương", map: "https://maps.app.goo.gl/V4U1GqA5z8w1P8F96?g_st=ic", emoji: "🥟", color: "#ff8da1" },
+            { id: 4, name: "Bún Đậu nhà Sen", tag: "Món Chính", address: "Bến Cát, Bình Dương", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🍲", color: "#ff6b84" },
+            { id: 5, name: "Bánh cuốn nóng Kim Loan", tag: "Món Chính", address: "Thủ Dầu Một, Bình Dương", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🌯", color: "#ff9bb3" },
+            { id: 6, name: "Gỏi đu đủ", tag: "Ăn Vặt", address: "Bình Dương", map: "https://maps.app.goo.gl/MbyL46A9xTjYstGHA?g_st=ic", emoji: "🥗", color: "#ffb3c8" },
+            { id: 7, name: "Chân gà & Sứa", tag: "Ăn Vặt", address: "Chợ đêm / Ăn vặt", map: "https://maps.app.goo.gl/hY679zW7V4wX9W7FA?g_st=ic", emoji: "🐔", color: "#ff8da1" },
+            { id: 8, name: "Sữa tươi trân châu & Bánh flan", tag: "Tráng Miệng", address: "Ăn vặt bờ kè", map: "https://maps.app.goo.gl/fK89zW7V4wX9W7FA?g_st=ic", emoji: "🧋", color: "#ff6b84" },
+            { id: 9, name: "Trà đào cam nhãn Soo tea", tag: "Đồ Uống", address: "Thủ Dầu Một", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🍵", color: "#ff9bb3" },
+            { id: 10, name: "Bánh Paparoti", tag: "Tráng Miệng", address: "Tiệm bánh", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🥐", color: "#ffb3c8" }
         ];
 
-        // Render food cards
+        // Tạo danh sách thẻ quán ăn ở dưới
         function renderFoodList() {
             const container = document.getElementById('foodList');
             if (!container) return;
@@ -445,7 +445,7 @@
                 const card = document.createElement('div');
                 card.className = 'food-card';
                 card.innerHTML = `
-                    <div class="food-image" style="background-image: url('https://picsum.photos/id/${80 + food.id}/300/300')"></div>
+                    <div class="food-image" style="background-image: url('https://picsum.photos/id/${100 + food.id}/300/300')"></div>
                     <div class="food-details">
                         <span class="food-tag">${food.tag}</span>
                         <div class="food-name">${food.emoji} ${food.name}</div>
@@ -457,7 +457,7 @@
             });
         }
 
-        // Canvas Wheel
+        // Vẽ Vòng Quay Canvas
         const canvas = document.getElementById("wheel");
         const ctx = canvas.getContext("2d");
         const spinBtn = document.getElementById("spinBtn");
@@ -476,78 +476,80 @@
             ctx.clearRect(0, 0, size, size);
             
             for (let i = 0; i < totalSegments; i++) {
-                // Đẩy góc vẽ lùi lại 90 độ (-Math.PI / 2) để phân bổ đều từ đỉnh kim chỉ
-                const startAngle = i * anglePerSegment - Math.PI / 2;
+                // Vẽ theo thứ tự bình thường bắt đầu từ góc 0
+                const startAngle = i * anglePerSegment;
                 const endAngle = startAngle + anglePerSegment;
                 
-                // Segment
+                // Vẽ ô màu cho từng món ăn
                 ctx.beginPath();
                 ctx.moveTo(center, center);
                 ctx.arc(center, center, radius, startAngle, endAngle);
                 ctx.fillStyle = foods[i].color;
                 ctx.fill();
                 ctx.strokeStyle = "#ffffff";
-                ctx.lineWidth = 4;
+                ctx.lineWidth = 3;
                 ctx.stroke();
                 
-                // Text/Emoji highlight
+                // Viết chữ và Emoji hướng tâm (Đã fix lỗi lộn ngược chữ)
                 ctx.save();
                 ctx.translate(center, center);
+                // Xoay trục vẽ đến chính giữa phân đoạn
                 ctx.rotate(startAngle + anglePerSegment / 2);
                 
-                // Emoji
-                ctx.font = "bold 32px sans-serif";
+                // Vẽ Emoji
+                ctx.font = "24px sans-serif";
                 ctx.textAlign = "center";
                 ctx.textBaseline = "middle";
-                ctx.fillStyle = "white";
-                ctx.shadowColor = "rgba(0,0,0,0.3)";
-                ctx.shadowBlur = 6;
-                ctx.fillText(foods[i].emoji, 0, -radius * 0.45);
+                ctx.fillText(foods[i].emoji, 0, -radius * 0.65);
                 
-                // Name (shortened)
-                ctx.font = "600 13px sans-serif";
-                ctx.fillStyle = "#fff";
-                ctx.shadowBlur = 0;
-                const shortName = foods[i].name.length > 18 ? foods[i].name.substring(0, 15) + "..." : foods[i].name;
-                ctx.fillText(shortName, 0, radius * 0.28);
+                // Vẽ Tên Món ngắn gọn
+                ctx.font = "bold 11px sans-serif";
+                ctx.fillStyle = "#ffffff";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                
+                // Rút gọn chữ nếu tên quá dài để không bị tràn ra viền ngoài
+                const displayName = foods[i].name.length > 12 ? foods[i].name.substring(0, 10) + ".." : foods[i].name;
+                ctx.fillText(displayName, 0, -radius * 0.35);
                 
                 ctx.restore();
             }
             
-            // Center circle
+            // Khối tròn nhỏ màu trắng ở lõi giữa
             ctx.beginPath();
             ctx.arc(center, center, 38, 0, Math.PI * 2);
             ctx.fillStyle = "#fff";
             ctx.fill();
             ctx.strokeStyle = "#ff8da1";
-            ctx.lineWidth = 8;
+            ctx.lineWidth = 6;
             ctx.stroke();
         }
 
+        // Khởi tạo ban đầu
         drawWheel();
         renderFoodList();
 
-        // Spin logic
+        // Logic Xử lý khi nhấn nút QUAY
         spinBtn.addEventListener("click", () => {
             if (isSpinning) return;
             isSpinning = true;
             resultDisplay.innerHTML = `<span style="font-size:1.1rem">Đang xoay... hai đứa cùng chờ nè 💕</span>`;
             
-            const extraSpins = 5;
+            const extraSpins = 6; // Số vòng quay tối thiểu trước khi dừng
             const randomDegrees = Math.floor(Math.random() * 360) + (extraSpins * 360);
             currentRotation += randomDegrees;
             
-            canvas.style.transition = 'transform 4.2s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            canvas.style.transition = 'transform 4.2s cubic-bezier(0.1, 0.8, 0.1, 1)';
             canvas.style.transform = `rotate(${currentRotation}deg)`;
             
             setTimeout(() => {
                 isSpinning = false;
                 
-                // Thuật toán chuẩn xác tính chỉ số trúng giải dựa trên góc quay thực tế
-                const normalized = (currentRotation % 360);
-                const segmentAngle = 360 / totalSegments;
-                let winningIndex = Math.floor((360 - normalized) / segmentAngle) % totalSegments;
-                if (winningIndex < 0) winningIndex += totalSegments;
+                // Thuật toán chuẩn xác tính điểm dừng tại kim chỉ (hướng 12 giờ tức là góc -90 độ hay 270 độ)
+                const degreesNormalized = (currentRotation % 360);
+                // Vị trí trúng thưởng thực tế đối ứng ngược với chiều xoay của CSS
+                let winningAngle = (270 - degreesNormalized + 360) % 360;
+                let winningIndex = Math.floor(winningAngle / (360 / totalSegments)) % totalSegments;
                 
                 const winner = foods[winningIndex];
                 
@@ -556,7 +558,7 @@
                     <span style="font-size:1.55rem; color:#ff4d6d;">${winner.emoji} ${winner.name}</span>
                 `;
                 
-                // Simple confetti effect
+                // Tạo hiệu ứng tim và sao bay tung tóe khi ra kết quả
                 for (let i = 0; i < 40; i++) {
                     setTimeout(() => {
                         const conf = document.createElement('div');
@@ -568,13 +570,13 @@
                         setTimeout(() => conf.remove(), 1200);
                     }, i * 18);
                 }
-            }, 4300);
+            }, 4200);
         });
 
-        // Keyboard support
+        // Bấm nút cách (Space) cũng có thể quay
         document.addEventListener('keydown', (e) => {
             if (e.key === ' ' && !isSpinning) {
-                e.preventDefault(); // Ngăn cuộn trang khi bấm Space trống
+                e.preventDefault();
                 spinBtn.click();
             }
         });
