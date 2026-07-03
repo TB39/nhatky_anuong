@@ -30,7 +30,6 @@
             position: relative;
         }
 
-        /* Thêm hình em Loopy siêu dễ thương ở đầu trang */
         .loopy-avatar {
             width: 90px;
             height: 90px;
@@ -83,7 +82,6 @@
             overflow: hidden;
         }
 
-        /* Thêm hình nền Loopy mờ ở góc thẻ cho sinh động */
         .food-card::after {
             content: "";
             position: absolute;
@@ -195,9 +193,10 @@
                 <div class="food-details">
                     <span class="food-tag">Món ăn</span>
                     <h3 class="food-name">1. Quán Bò Né</h3>
-                    <p class="food-address">📍 Nhấp Chỉ đường để xem vị trí chính xác</p>
+                    <p class="food-address">📍 Nhấp Chỉ đường để xem vị trí</p>
                 </div>
-                <a href="https://maps.app.goo.gl/eE2kK2cAmwsjqTC27" target="_blank" class="btn-maps">
+                <!-- Link cấu trúc API chống lỗi hệ thống -->
+                <a href="https://www.google.com/maps/search/?api=1&query=Quán+Bò+Né" target="_blank" class="btn-maps">
                     <span>Chỉ đường</span> ➔
                 </a>
             </div>
@@ -207,9 +206,10 @@
                 <div class="food-details">
                     <span class="food-tag">Món ăn</span>
                     <h3 class="food-name">2. Bún Bò 29</h3>
-                    <p class="food-address">📍 Nhấp Chỉ đường để xem vị trí chính xác</p>
+                    <p class="food-address">📍 Nhấp Chỉ đường để xem vị trí</p>
                 </div>
-                <a href="https://maps.app.goo.gl/h5UfM4ni9k7m6gDc8" target="_blank" class="btn-maps">
+                <!-- Link cấu trúc API chống lỗi hệ thống -->
+                <a href="https://www.google.com/maps/search/?api=1&query=Bún+Bò+29" target="_blank" class="btn-maps">
                     <span>Chỉ đường</span> ➔
                 </a>
             </div>
@@ -219,7 +219,7 @@
                 <div class="food-details">
                     <span class="food-tag">Món ăn</span>
                     <h3 class="food-name">3. Bánh Bèo Chén</h3>
-                    <p class="food-address">📍 Chưa cập nhật địa chỉ cụ thể</p>
+                    <p class="food-address">📍 Chưa cập nhật địa chỉ</p>
                 </div>
                 <a href="https://www.google.com/maps/search/?api=1&query=Bánh+bèo+chén" target="_blank" class="btn-maps">
                     <span>Tìm đường</span> ➔
