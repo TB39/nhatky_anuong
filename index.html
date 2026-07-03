@@ -203,6 +203,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             transition: all 0.2s ease;
         }
 
@@ -405,6 +406,8 @@
     <script>
         // Floating petals
         function createPetal() {
+            const petalsContainer = document.getElementById('petalsContainer');
+            if (!petalsContainer) return;
             const petal = document.createElement('div');
             petal.classList.add('petal');
             petal.innerHTML = ['🌸', '💗', '🍓', '🧁', '✨'][Math.floor(Math.random()*5)];
@@ -412,109 +415,30 @@
             petal.style.animationDuration = (Math.random() * 8 + 9) + 's';
             petal.style.fontSize = (Math.random() * 18 + 14) + 'px';
             petal.style.opacity = Math.random() * 0.6 + 0.5;
-            document.getElementById('petalsContainer').appendChild(petal);
+            petalsContainer.appendChild(petal);
             
             setTimeout(() => petal.remove(), 18000);
         }
         setInterval(createPetal, 280);
 
-        // Food data with images (using placeholder links - replace if you have real photos)
+        // Food data
         const foods = [
-            {
-                id: 1,
-                name: "Bò bít tết Ngã Tư Hoà Lân",
-                tag: "Món Chính",
-                address: "Quận Thủ Đức",
-                map: "https://www.google.com/maps/search/?api=1&query=Bò+bít+tết+ngã+tư+Hoà+Lân",
-                emoji: "🥩",
-                color: "#ff6b84"
-            },
-            {
-                id: 2,
-                name: "Bún bò 29",
-                tag: "Món Chính",
-                address: "Quận 1 / Bình Thạnh",
-                map: "https://www.google.com/maps/search/?api=1&query=Bún+bò+29",
-                emoji: "🍜",
-                color: "#ff9bb3"
-            },
-            {
-                id: 3,
-                name: "Bánh bèo chén Bàu Bàng",
-                tag: "Món Chính",
-                address: "Bình Dương",
-                map: "https://www.google.com/maps/search/?api=1&query=Bánh+bèo+chén+Bàu+Bàng",
-                emoji: "🥟",
-                color: "#ff8da1"
-            },
-            {
-                id: 4,
-                name: "Bún Đậu nhà Sen",
-                tag: "Món Chính",
-                address: "Quận 3",
-                map: "https://www.google.com/maps/search/?api=1&query=Bún+Đậu+nhà+Sen",
-                emoji: "🍲",
-                color: "#ff6b84"
-            },
-            {
-                id: 5,
-                name: "Bánh cuốn nóng Kim Loan",
-                tag: "Món Chính",
-                address: "Quận Phú Nhuận",
-                map: "https://www.google.com/maps/search/?api=1&query=Bánh+cuốn+nóng+Kim+Loan",
-                emoji: "🌯",
-                color: "#ff9bb3"
-            },
-            {
-                id: 6,
-                name: "Gỏi đu đủ",
-                tag: "Ăn Vặt",
-                address: "Nhiều chỗ",
-                map: "https://www.google.com/maps/search/?api=1&query=Gỏi+đu+đủ",
-                emoji: "🥗",
-                color: "#ffb3c8"
-            },
-            {
-                id: 7,
-                name: "Chân gà & Sứa",
-                tag: "Ăn Vặt",
-                address: "Quán vặt",
-                map: "https://www.google.com/maps/search/?api=1&query=Chân+gà+sứa",
-                emoji: "🐔",
-                color: "#ff8da1"
-            },
-            {
-                id: 8,
-                name: "Sữa tươi trân châu & Bánh flan",
-                tag: "Tráng Miệng",
-                address: "Nhiều quán",
-                map: "https://www.google.com/maps/search/?api=1&query=Sữa+tươi+trân+châu+đường+đen",
-                emoji: "🧋",
-                color: "#ff6b84"
-            },
-            {
-                id: 9,
-                name: "Trà đào cam nhãn Soo tea",
-                tag: "Đồ Uống",
-                address: "Quận 1",
-                map: "https://www.google.com/maps/search/?api=1&query=Trà+đào+cam+nhãn+Soo+tea",
-                emoji: "🍵",
-                color: "#ff9bb3"
-            },
-            {
-                id: 10,
-                name: "Bánh Paparoti",
-                tag: "Tráng Miệng",
-                address: "Nhiều chi nhánh",
-                map: "https://www.google.com/maps/search/?api=1&query=Bánh+Paparoti",
-                emoji: "🥐",
-                color: "#ffb3c8"
-            }
+            { id: 1, name: "Bò bít tết Ngã Tư Hoà Lân", tag: "Món Chính", address: "Quận Thủ Đức", map: "https://www.google.com/maps/search/?api=1&query=Bò+bít+tết+ngã+tư+Hoà+Lân", emoji: "🥩", color: "#ff6b84" },
+            { id: 2, name: "Bún bò 29", tag: "Món Chính", address: "Quận 1 / Bình Thạnh", map: "https://www.google.com/maps/search/?api=1&query=Bún+bò+29", emoji: "🍜", color: "#ff9bb3" },
+            { id: 3, name: "Bánh bèo chén Bàu Bàng", tag: "Món Chính", address: "Bình Dương", map: "https://www.google.com/maps/search/?api=1&query=Bánh+bèo+chén+Bàu+Bàng", emoji: "🥟", color: "#ff8da1" },
+            { id: 4, name: "Bún Đậu nhà Sen", tag: "Món Chính", address: "Quận 3", map: "https://www.google.com/maps/search/?api=1&query=Bún+Đậu+nhà+Sen", emoji: "🍲", color: "#ff6b84" },
+            { id: 5, name: "Bánh cuốn nóng Kim Loan", tag: "Món Chính", address: "Quận Phú Nhuận", map: "https://www.google.com/maps/search/?api=1&query=Bánh+cuốn+nóng+Kim+Loan", emoji: "🌯", color: "#ff9bb3" },
+            { id: 6, name: "Gỏi đu đủ", tag: "Ăn Vặt", address: "Nhiều chỗ", map: "https://www.google.com/maps/search/?api=1&query=Gỏi+đu+đủ", emoji: "🥗", color: "#ffb3c8" },
+            { id: 7, name: "Chân gà & Sứa", tag: "Ăn Vặt", address: "Quán vặt", map: "https://www.google.com/maps/search/?api=1&query=Chân+gà+sứa", emoji: "🐔", color: "#ff8da1" },
+            { id: 8, name: "Sữa tươi trân châu & Bánh flan", tag: "Tráng Miệng", address: "Nhiều quán", map: "https://www.google.com/maps/search/?api=1&query=Sữa+tươi+trân+châu+đường+đen", emoji: "🧋", color: "#ff6b84" },
+            { id: 9, name: "Trà đào cam nhãn Soo tea", tag: "Đồ Uống", address: "Quận 1", map: "https://www.google.com/maps/search/?api=1&query=Trà+đào+cam+nhãn+Soo+tea", emoji: "🍵", color: "#ff9bb3" },
+            { id: 10, name: "Bánh Paparoti", tag: "Tráng Miệng", address: "Nhiều chi nhánh", map: "https://www.google.com/maps/search/?api=1&query=Bánh+Paparoti", emoji: "🥐", color: "#ffb3c8" }
         ];
 
         // Render food cards
         function renderFoodList() {
             const container = document.getElementById('foodList');
+            if (!container) return;
             container.innerHTML = '';
             
             foods.forEach(food => {
@@ -552,7 +476,8 @@
             ctx.clearRect(0, 0, size, size);
             
             for (let i = 0; i < totalSegments; i++) {
-                const startAngle = i * anglePerSegment;
+                // Đẩy góc vẽ lùi lại 90 độ (-Math.PI / 2) để phân bổ đều từ đỉnh kim chỉ
+                const startAngle = i * anglePerSegment - Math.PI / 2;
                 const endAngle = startAngle + anglePerSegment;
                 
                 // Segment
@@ -565,7 +490,7 @@
                 ctx.lineWidth = 4;
                 ctx.stroke();
                 
-                // Inner highlight
+                // Text/Emoji highlight
                 ctx.save();
                 ctx.translate(center, center);
                 ctx.rotate(startAngle + anglePerSegment / 2);
@@ -618,9 +543,11 @@
             setTimeout(() => {
                 isSpinning = false;
                 
-                const normalized = currentRotation % 360;
+                // Thuật toán chuẩn xác tính chỉ số trúng giải dựa trên góc quay thực tế
+                const normalized = (currentRotation % 360);
                 const segmentAngle = 360 / totalSegments;
                 let winningIndex = Math.floor((360 - normalized) / segmentAngle) % totalSegments;
+                if (winningIndex < 0) winningIndex += totalSegments;
                 
                 const winner = foods[winningIndex];
                 
@@ -647,6 +574,7 @@
         // Keyboard support
         document.addEventListener('keydown', (e) => {
             if (e.key === ' ' && !isSpinning) {
+                e.preventDefault(); // Ngăn cuộn trang khi bấm Space trống
                 spinBtn.click();
             }
         });
