@@ -2,8 +2,7 @@
 <html lang="vi">
 <!-- 
   GITHUB ACTIONS CONFIGURATION AUTO-TRIGGER
-  Mã kích hoạt hệ thống chạy lại lượt deploy mới tinh
-  ID chạy mới: deploy_refresh_2026_v2
+  Mã sửa lỗi vòng quay chỉ ra đúng 1 món - Update v3.0
 -->
 <head>
     <meta charset="UTF-8">
@@ -57,7 +56,7 @@
         }
 
         @keyframes floatPetals {
-            0 { transform: translateY(-100px) rotate(0deg); }
+            0% { transform: translateY(-100px) rotate(0deg); }
             100% { transform: translateY(110vh) rotate(720deg); }
         }
 
@@ -171,7 +170,7 @@
                 0 0 0 14px #fff,
                 0 0 0 18px var(--accent),
                 0 15px 35px rgba(255, 77, 109, 0.25);
-            transition: transform 4.2s cubic-bezier(0.1, 0.8, 0.1, 1);
+            transition: transform 4.2s cubic-bezier(0.2, 0.8, 0.1, 1);
         }
 
         .btn-spin {
@@ -370,7 +369,7 @@
     <div class="container">
         <div class="wheel-section">
             <div class="wheel-title">
-                🎠 Vòng Quay Tình Yêu • Hôm Nay Ăn Gì?
+                🎠 Vòng Quay Tình Yêu • Hômcopy Ăn Gì?
             </div>
             <div class="wheel-wrapper">
                 <div class="wheel-pointer"></div>
@@ -396,7 +395,7 @@
             const petalsContainer = document.getElementById('petalsContainer');
             if (!petalsContainer) return;
             const petal = document.createElement('div');
-            box = ['🌸', '💗', '🍓', '🧁', '✨'];
+            const box = ['🌸', '💗', '🍓', '🧁', '✨'];
             petal.classList.add('petal');
             petal.innerHTML = box[Math.floor(Math.random()*5)];
             petal.style.left = Math.random() * 100 + 'vw';
@@ -504,21 +503,21 @@
             isSpinning = true;
             resultDisplay.innerHTML = `<span style="font-size:1.1rem">Đang xoay... hai đứa cùng chờ nè 💕</span>`;
             
-            // CHỌN NGẪU NHIÊN 100% TẤT CẢ CÁC MÓN
+            // Chọn ngẫu nhiên index thật sự từ 0 -> 9
             const targetIndex = Math.floor(Math.random() * totalSegments); 
             
-            const baseSpins = 6 * 360; 
-            const currentRotationDegrees = currentRotation % 360;
-            const degreesPerSegment = 360 / totalSegments;
+            // Số vòng quay tối thiểu (vòng tròn quay tít)
+            const extraSpins = 5 * 360; 
             
-            const targetAngle = 270 - (targetIndex * degreesPerSegment) - (degreesPerSegment / 2);
-            let finalDegrees = baseSpins + targetAngle - currentRotationDegrees;
+            // Tính toán góc xoay chính xác để tâm của ô được chọn dừng ngay dưới mũi tên (ở góc 270 độ / hướng 12 giờ)
+            const targetAngleRad = (targetIndex * anglePerSegment) + (anglePerSegment / 2);
+            const targetAngleDeg = targetAngleRad * (180 / Math.PI);
             
-            if (finalDegrees < baseSpins) {
-                finalDegrees += 360;
-            }
+            // Công thức chuẩn để dừng đúng ô mong muốn
+            const finalRotationDegrees = extraSpins + (270 - targetAngleDeg);
             
-            currentRotation += finalDegrees;
+            // Lưu lại vị trí tích luỹ để lần quay sau quay tiếp từ điểm cũ mượt mà hơn
+            currentRotation = (Math.ceil(currentRotation / 360) * 360) + finalRotationDegrees;
             canvas.style.transform = `rotate(${currentRotation}deg)`;
             
             setTimeout(() => {
