@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Food Diary ✨</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --primary-light: #e6f0fa;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-sub: #7f8c8d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem 1.5rem 1rem;
+            background: linear-gradient(180deg, #fff 0%, var(--bg-color) 100%);
+            position: relative;
+        }
+
+        /* Thêm hình em Loopy siêu dễ thương ở đầu trang */
+        .loopy-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-image: url('https://i.pinimg.com/736x/8f/fa/b9/8ffab9888915bc8b1cc1de20a9a81da1.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 1rem auto;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+            border: 3px solid white;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--text-sub);
+            margin: 0.5rem 0 0 0;
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 1.2rem 4rem 1.2rem;
+        }
+
+        .food-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .food-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(0,0,0,0.01);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Thêm hình nền Loopy mờ ở góc thẻ cho sinh động */
+        .food-card::after {
+            content: "";
+            position: absolute;
+            right: 110px;
+            bottom: -10px;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://i.pinimg.com/736x/8f/fa/b9/8ffab9888915bc8b1cc1de20a9a81da1.jpg');
+            background-size: cover;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+
+        .food-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(74, 144, 226, 0.1);
+            border-color: rgba(74, 144, 226, 0.2);
+        }
+
+        .food-details {
+            flex: 1;
+            padding-right: 1rem;
+        }
+
+        .food-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 0 0.3rem 0;
+            color: var(--text-main);
+        }
+
+        .food-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            padding: 0.1rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .food-address {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin: 0;
+        }
+
+        .btn-maps {
+            background-color: #f0f3f6;
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 0.65rem 1.1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .food-card:hover .btn-maps {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #edf2f7;
+        }
+
+        @media (max-width: 480px) {
+            .food-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1.2rem;
+            }
+            .btn-maps {
+                width: 100%;
+                box-sizing: border-box;
+                justify-content: center;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="loopy-avatar"></div>
+        <h1>Our Food Diary ✨</h1>
+        <p>Danh sách những quán ăn tụi mình đã đi qua</p>
+    </header>
+
+    <div class="container">
+        <div class="food-list">
+
+            <!-- QUÁN 1: BÒ NÉ -->
+            <div class="food-card">
+                <div class="food-details">
+                    <span class="food-tag">Món ăn</span>
+                    <h3 class="food-name">1. Quán Bò Né</h3>
+                    <p class="food-address">📍 Nhấp Chỉ đường để xem vị trí chính xác</p>
+                </div>
+                <a href="https://maps.app.goo.gl/eE2kK2cAmwsjqTC27" target="_blank" class="btn-maps">
+                    <span>Chỉ đường</span> ➔
+                </a>
+            </div>
+
+            <!-- QUÁN 2: BÚN BÒ 29 -->
+            <div class="food-card">
+                <div class="food-details">
+                    <span class="food-tag">Món ăn</span>
+                    <h3 class="food-name">2. Bún Bò 29</h3>
+                    <p class="food-address">📍 Nhấp Chỉ đường để xem vị trí chính xác</p>
+                </div>
+                <a href="https://maps.app.goo.gl/h5UfM4ni9k7m6gDc8" target="_blank" class="btn-maps">
+                    <span>Chỉ đường</span> ➔
+                </a>
+            </div>
+
+            <!-- QUÁN 3: BÁNH BÈO CHÉN -->
+            <div class="food-card">
+                <div class="food-details">
+                    <span class="food-tag">Món ăn</span>
+                    <h3 class="food-name">3. Bánh Bèo Chén</h3>
+                    <p class="food-address">📍 Chưa cập nhật địa chỉ cụ thể</p>
+                </div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Bánh+bèo+chén" target="_blank" class="btn-maps">
+                    <span>Tìm đường</span> ➔
+                </a>
+            </div>
+
+        </div>
+        
+        <footer>
+            <p>Made with 💙 and Loopy • 2026</p>
+        </footer>
+    </div>
+
+</body>
+</html>
