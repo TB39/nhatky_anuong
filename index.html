@@ -403,7 +403,6 @@
         }
         setInterval(createPetal, 280);
 
-        // ĐÃ CẬP NHẬT CHUẨN 100% TOÀN BỘ 10 LINK GOOGLE MAPS KHÔNG BỊ LỖI DYNAMIC LINK
         const foods = [
             { id: 1, name: "Bò bít tết ngã tư Hoà Lân", tag: "Món Chính", address: "Thuận An, Bình Dương", map: "https://maps.app.goo.gl/eE2kK2cAmwsjqTC27?g_st=ic", emoji: "🥩", color: "#ff6b84" },
             { id: 2, name: "Bún bò 29", tag: "Món Chính", address: "Thủ Dầu Một, Bình Dương", map: "https://maps.app.goo.gl/h5UfM4ni9k7m6gDc8?g_st=ic", emoji: "🍜", color: "#ff9bb3" },
@@ -411,7 +410,7 @@
             { id: 4, name: "Bún Đậu nhà Sen", tag: "Món Chính", address: "Bến Cát, Bình Dương", map: "https://maps.app.goo.gl/miswUFfUV9rmcdXo7?g_st=ic", emoji: "🍲", color: "#ff6b84" },
             { id: 5, name: "Bánh cuốn nóng Kim Loan", tag: "Món Chính", address: "Thủ Dầu Một, Bình Dương", map: "https://maps.app.goo.gl/NwJ1cPwM7cEuo9qH6?g_st=ic", emoji: "🌯", color: "#ff9bb3" },
             { id: 6, name: "Gỏi đu đủ", tag: "Ăn Vặt", address: "Bình Dương", map: "https://maps.app.goo.gl/hzydCMjUoxPJ8RkS7?g_st=ic", emoji: "🥗", color: "#ffb3c8" },
-            { id: 7, name: "Chân gà & Sứa", tag: "Ăn Vặt", address: "Chợ đêm / Ăn vặt", map: "https://maps.app.goo.gl/17HNcw1VBZyfGXxdA?g_st=ic", emoji: "🐔", color: "#ff8da1" }, // Món mục tiêu trúng thưởng
+            { id: 7, name: "Chân gà & Sứa", tag: "Ăn Vặt", address: "Chợ đêm / Ăn vặt", map: "https://maps.app.goo.gl/17HNcw1VBZyfGXxdA?g_st=ic", emoji: "🐔", color: "#ff8da1" },
             { id: 8, name: "Sữa tươi trân châu & Bánh flan", tag: "Tráng Miệng", address: "Ăn vặt bờ kè", map: "https://maps.app.goo.gl/P7YXqCYaS2qepxT7A?g_st=ic", emoji: "🧋", color: "#ff6b84" },
             { id: 9, name: "Trà đào cam nhãn Soo tea", tag: "Đồ Uống", address: "Thủ Dầu Một", map: "https://maps.app.goo.gl/UDZkBjiLx3EZo5Sf7?g_st=ic", emoji: "🍵", color: "#ff9bb3" },
             { id: 10, name: "Bánh Paparoti", tag: "Tráng Miệng", address: "Tiệm bánh", map: "https://maps.app.goo.gl/vzrdFgFv8Eh57mun7?g_st=ic", emoji: "🥐", color: "#ffb3c8" }
@@ -500,18 +499,14 @@
             isSpinning = true;
             resultDisplay.innerHTML = `<span style="font-size:1.1rem">Đang xoay... hai đứa cùng chờ nè 💕</span>`;
             
-            // Chỉ định vị trí món trúng thưởng: "Chân gà & Sứa" nằm ở index số 6 (vị trí thứ 7 trong mảng)
-            const targetIndex = 6; 
+            // THUẬT TOÁN ĐÃ ĐƯỢC THAY ĐỔI: Chọn một index ngẫu nhiên từ 0 đến 9 hoàn toàn tự nhiên
+            const targetIndex = Math.floor(Math.random() * totalSegments); 
             
-            // Số vòng quay trọn vẹn chạy mồi (6 vòng)
             const baseSpins = 6 * 360; 
-            
-            // Thuật toán đảo ngược góc quay để mũi tên hướng góc 270 độ (đỉnh trên cùng) 
-            // chỉ trúng tâm cung phần tư của ô "Chân gà & Sứa" sau khi trừ đi phần tích luỹ cũ
             const currentRotationDegrees = currentRotation % 360;
             const degreesPerSegment = 360 / totalSegments;
             
-            // Tính toán góc đích đến chính xác
+            // Tính toán góc dừng để mũi tên (đỉnh trên cùng 270 độ) chỉ đúng món được chọn ngẫu nhiên
             const targetAngle = 270 - (targetIndex * degreesPerSegment) - (degreesPerSegment / 2);
             let finalDegrees = baseSpins + targetAngle - currentRotationDegrees;
             
@@ -520,12 +515,10 @@
             }
             
             currentRotation += finalDegrees;
-            
             canvas.style.transform = `rotate(${currentRotation}deg)`;
             
             setTimeout(() => {
                 isSpinning = false;
-                
                 const winner = foods[targetIndex];
                 
                 resultDisplay.innerHTML = `
