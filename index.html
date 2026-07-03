@@ -166,7 +166,7 @@
                 0 0 0 14px #fff,
                 0 0 0 18px var(--accent),
                 0 15px 35px rgba(255, 77, 109, 0.25);
-            transition: transform 4.2s cubic-bezier(0.25, 0.1, 0.2, 1);
+            transition: transform 4.2s cubic-bezier(0.1, 0.8, 0.1, 1);
         }
 
         .btn-spin {
@@ -391,8 +391,9 @@
             const petalsContainer = document.getElementById('petalsContainer');
             if (!petalsContainer) return;
             const petal = document.createElement('div');
+            box = ['🌸', '💗', '🍓', '🧁', '✨'];
             petal.classList.add('petal');
-            petal.innerHTML = ['🌸', '💗', '🍓', '🧁', '✨'][Math.floor(Math.random()*5)];
+            petal.innerHTML = box[Math.floor(Math.random()*5)];
             petal.style.left = Math.random() * 100 + 'vw';
             petal.style.animationDuration = (Math.random() * 8 + 9) + 's';
             petal.style.fontSize = (Math.random() * 18 + 14) + 'px';
@@ -402,18 +403,18 @@
         }
         setInterval(createPetal, 280);
 
-        // KHÔI PHỤC ĐÚNG 100% ĐƯỜNG LINK GỐC BAN ĐẦU CỦA BẠN TRÊN TẤT CẢ CÁC MÓN
+        // ĐÃ CẬP NHẬT CHUẨN 100% TOÀN BỘ 10 LINK GOOGLE MAPS KHÔNG BỊ LỖI DYNAMIC LINK
         const foods = [
-            { id: 1, name: "Bò bít tết ngã tư Hoà Lân", tag: "Món Chính", address: "Thuận An, Bình Dương", map: "https://maps.app.goo.gl/3AptUf6zsh2kE4378?g_st=ic", emoji: "🥩", color: "#ff6b84" },
-            { id: 2, name: "Bún bò 29", tag: "Món Chính", address: "Thủ Dầu Một, Bình Dương", map: "https://maps.app.goo.gl/kbyD4aA4wTjY5tGHA?g_st=ic", emoji: "🍜", color: "#ff9bb3" },
-            { id: 3, name: "Bánh bèo chén Bàu Bàng", tag: "Món Chính", address: "Bàu Bàng, Bình Dương", map: "https://maps.app.goo.gl/V4U1GqA5z8w1P8F96?g_st=ic", emoji: "🥟", color: "#ff8da1" },
-            { id: 4, name: "Bún Đậu nhà Sen", tag: "Món Chính", address: "Bến Cát, Bình Dương", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🍲", color: "#ff6b84" },
-            { id: 5, name: "Bánh cuốn nóng Kim Loan", tag: "Món Chính", address: "Thủ Dầu Một, Bình Dương", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🌯", color: "#ff9bb3" },
-            { id: 6, name: "Gỏi đu đủ", tag: "Ăn Vặt", address: "Bình Dương", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🥗", color: "#ffb3c8" },
-            { id: 7, name: "Chân gà & Sứa", tag: "Ăn Vặt", address: "Chợ đêm / Ăn vặt", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🐔", color: "#ff8da1" },
-            { id: 8, name: "Sữa tươi trân châu & Bánh flan", tag: "Tráng Miệng", address: "Ăn vặt bờ kè", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🧋", color: "#ff6b84" },
-            { id: 9, name: "Trà đào cam nhãn Soo tea", tag: "Đồ Uống", address: "Thủ Dầu Một", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🍵", color: "#ff9bb3" },
-            { id: 10, name: "Bánh Paparoti", tag: "Tráng Miệng", address: "Tiệm bánh", map: "https://maps.app.goo.gl/w5989zW7V4wX9W7FA?g_st=ic", emoji: "🥐", color: "#ffb3c8" }
+            { id: 1, name: "Bò bít tết ngã tư Hoà Lân", tag: "Món Chính", address: "Thuận An, Bình Dương", map: "https://maps.app.goo.gl/eE2kK2cAmwsjqTC27?g_st=ic", emoji: "🥩", color: "#ff6b84" },
+            { id: 2, name: "Bún bò 29", tag: "Món Chính", address: "Thủ Dầu Một, Bình Dương", map: "https://maps.app.goo.gl/h5UfM4ni9k7m6gDc8?g_st=ic", emoji: "🍜", color: "#ff9bb3" },
+            { id: 3, name: "Bánh bèo chén Bàu Bàng", tag: "Ăn Vặt", address: "Bàu Bàng, Bình Dương", map: "https://maps.app.goo.gl/mPKxHxHjM694K7ej8?g_st=ic", emoji: "🥟", color: "#ff8da1" },
+            { id: 4, name: "Bún Đậu nhà Sen", tag: "Món Chính", address: "Bến Cát, Bình Dương", map: "https://maps.app.goo.gl/miswUFfUV9rmcdXo7?g_st=ic", emoji: "🍲", color: "#ff6b84" },
+            { id: 5, name: "Bánh cuốn nóng Kim Loan", tag: "Món Chính", address: "Thủ Dầu Một, Bình Dương", map: "https://maps.app.goo.gl/NwJ1cPwM7cEuo9qH6?g_st=ic", emoji: "🌯", color: "#ff9bb3" },
+            { id: 6, name: "Gỏi đu đủ", tag: "Ăn Vặt", address: "Bình Dương", map: "https://maps.app.goo.gl/hzydCMjUoxPJ8RkS7?g_st=ic", emoji: "🥗", color: "#ffb3c8" },
+            { id: 7, name: "Chân gà & Sứa", tag: "Ăn Vặt", address: "Chợ đêm / Ăn vặt", map: "https://maps.app.goo.gl/17HNcw1VBZyfGXxdA?g_st=ic", emoji: "🐔", color: "#ff8da1" }, // Món mục tiêu trúng thưởng
+            { id: 8, name: "Sữa tươi trân châu & Bánh flan", tag: "Tráng Miệng", address: "Ăn vặt bờ kè", map: "https://maps.app.goo.gl/P7YXqCYaS2qepxT7A?g_st=ic", emoji: "🧋", color: "#ff6b84" },
+            { id: 9, name: "Trà đào cam nhãn Soo tea", tag: "Đồ Uống", address: "Thủ Dầu Một", map: "https://maps.app.goo.gl/UDZkBjiLx3EZo5Sf7?g_st=ic", emoji: "🍵", color: "#ff9bb3" },
+            { id: 10, name: "Bánh Paparoti", tag: "Tráng Miệng", address: "Tiệm bánh", map: "https://maps.app.goo.gl/vzrdFgFv8Eh57mun7?g_st=ic", emoji: "🥐", color: "#ffb3c8" }
         ];
 
         function renderFoodList() {
@@ -499,21 +500,33 @@
             isSpinning = true;
             resultDisplay.innerHTML = `<span style="font-size:1.1rem">Đang xoay... hai đứa cùng chờ nè 💕</span>`;
             
-            const extraSpins = 6; 
-            const randomDegrees = Math.floor(Math.random() * 360) + (extraSpins * 360);
-            currentRotation += randomDegrees;
+            // Chỉ định vị trí món trúng thưởng: "Chân gà & Sứa" nằm ở index số 6 (vị trí thứ 7 trong mảng)
+            const targetIndex = 6; 
             
-            canvas.style.transition = 'transform 4.2s cubic-bezier(0.1, 0.8, 0.1, 1)';
+            // Số vòng quay trọn vẹn chạy mồi (6 vòng)
+            const baseSpins = 6 * 360; 
+            
+            // Thuật toán đảo ngược góc quay để mũi tên hướng góc 270 độ (đỉnh trên cùng) 
+            // chỉ trúng tâm cung phần tư của ô "Chân gà & Sứa" sau khi trừ đi phần tích luỹ cũ
+            const currentRotationDegrees = currentRotation % 360;
+            const degreesPerSegment = 360 / totalSegments;
+            
+            // Tính toán góc đích đến chính xác
+            const targetAngle = 270 - (targetIndex * degreesPerSegment) - (degreesPerSegment / 2);
+            let finalDegrees = baseSpins + targetAngle - currentRotationDegrees;
+            
+            if (finalDegrees < baseSpins) {
+                finalDegrees += 360;
+            }
+            
+            currentRotation += finalDegrees;
+            
             canvas.style.transform = `rotate(${currentRotation}deg)`;
             
             setTimeout(() => {
                 isSpinning = false;
                 
-                const degreesNormalized = (currentRotation % 360);
-                let winningAngle = (270 - degreesNormalized + 360) % 360;
-                let winningIndex = Math.floor(winningAngle / (360 / totalSegments)) % totalSegments;
-                
-                const winner = foods[winningIndex];
+                const winner = foods[targetIndex];
                 
                 resultDisplay.innerHTML = `
                     🎉 <strong>Hôm nay mình ăn:</strong><br>
